@@ -7,9 +7,8 @@ logo_sprite = Sprite();
 logo_sprite.SetX(Window.GetWidth() / 2 - logo_imagen[0].GetWidth() / 2);
 logo_sprite.SetY(Window.GetHeight() / 2 - logo_imagen[0].GetHeight() / 2);
 
-img = 0;
 
-fun refresh_callback ()
+fun boot_callback ()
   {	
   	logo_sprite.SetImage(logo_imagen[img]);
   	if(img<105){
@@ -17,6 +16,20 @@ fun refresh_callback ()
 	}
   }
   
-Plymouth.SetRefreshFunction (refresh_callback);
-
+fun poweroff_callback ()
+  {	
+  	logo_sprite.SetImage(logo_imagen[img]);
+  	if(img>0){
+		img--;
+	}
+  }
+  
+  
+if (Plymouth.GetMode() == "boot"){
+	img = 0;
+	Plymouth.SetRefreshFunction (boot_callback);
+}else{
+	img = 105;
+	Plymouth.SetRefreshFunction (poweroff_callback);
+}
 
