@@ -1,0 +1,22 @@
+Window.SetBackgroundColor (0, 0, 0);
+for (i = 0; i <= 105; i = i + 2)
+  logo_imagen[i] = Image("progress-" + i + ".png");
+logo_sprite = Sprite();
+
+
+logo_sprite.SetX(Window.GetWidth() / 2 - logo_imagen[0].GetWidth() / 2);
+logo_sprite.SetY(Window.GetHeight() / 2 - logo_imagen[0].GetHeight() / 2);
+
+img = 0;
+
+fun refresh_callback ()
+  {	
+  	logo_sprite.SetImage(logo_imagen[img]);
+  	if(img<105){
+		img++;
+	}
+  }
+  
+Plymouth.SetRefreshFunction (refresh_callback);
+
+

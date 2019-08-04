@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=arch-agua
+Description=Arch Agua
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/arch-agua
+ScriptFile=/usr/share/plymouth/themes/arch-agua/arch-agua.script
